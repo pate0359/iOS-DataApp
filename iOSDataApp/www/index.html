@@ -3,145 +3,244 @@
 
 <head>
 	<meta charset="UTF-8">
-	<title>GIFTR</title>
-	<!--	<link href="css/bootstrap-combined.min.css" rel="stylesheet">-->
-	<link href="css/main.css" rel="stylesheet" />
-	<!--	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.15/angular.min.js"></script>-->
-	<!--
-	<script src="js/angular.min.js"></script>
-	<script src="js/angular-touch.min.js"></script>
--->
-	<!--	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>-->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-	<!--
-	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-animate.min.js"></script>
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0-rc.2/angular-touch.min.js"></script>
-	<script src="http://cdnjs.cloudflare.com/ajax/libs/gsap/1.10.3/TweenMax.min.js"></script>
--->
+	<meta name="format-detection" content="telephone=no" />
+	<meta name="msapplication-tap-highlight" content="no" />
+	<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width, height=device-height, target-densitydpi=device-dpi" />
 
+	<title>GIFTR</title>
+	
+	<link href="css/bootstrap.min.css" rel="stylesheet" />
+	<link href="css/bootstrap-arrow-buttons.css" rel="stylesheet" />
+	<link href="css/main.css" rel="stylesheet" />
+<!--	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>-->
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/hammer.min.js"></script>
 	<script type="text/javascript" src="js/swipe.js"></script>
+	<script type="text/javascript" src="js/localstorage.js"></script>
 	<script type="text/javascript" src="js/app.js"></script>
 
 </head>
 <body>
 	<section data-role="page" id="people-list">
-		<div id='mySwipe' style='max-width:500px;margin:0 auto' class='swipe'>
-			<div class='swipe-wrap'>
-				<div style='background-color:#999;'>
-					<h2>People <button class="btnAdd">+</button></h2>
+		<div class="container">
+			<div class="row">
+				<div id='mySwipe' class='swipe col-xs-12'>
+					<div class='swipe-wrap'>
+						<div style='background-color:#999;' class="col-xs-12">
+							<div class="row">
+								<nav class="navbar navbar-default col-xs-12">
+									<div class="container-fluid">
+										<h1 class="navbar-text navbar-center col-xs-9">People</h1>
+										<div class="navbar-header navbar-right">
+											<button displaypage="people" type="button" onclick='app.AddPeopleOccation(event)' class="btn btn-default navbar-btn navbar-right col-xs-3 "><i class="icon-plus-sign icon-large"></i>+ Add</button>
+										</div>
+									</div>
+								</nav>
+							</div>
 
-					<!--	<button onclick='mySwipe.next()'>next</button>-->
-					<p class="details">
-						Here are all the people for which <em>you</em> buy gifts.
-					</p>
-					<ul data-role="listview">
-
-						list of items to be dynamically added single-tap to add gift for person through gifts-for-person page double-tap to remove person
-
-					</ul>
-				</div>
-				<div id="gifts-for-person" style='background-color:#888;'>
-					<h2>Gift Ideas <button class="btnAdd">+</button></h2>
-					<!--					<button onclick='mySwipe.prev()'>prev</button>-->
-					<p class="details">
-						Here are all the gifts ideas for <span>PERSON</span> for all occasions.
-					</p>
-					<ul data-role="listview">
-						list of items to be dynamically added single-tap gift idea to toggle purchased state for gift double-tap gift idea to remove from list
-
-					</ul>
+							<div class="row">
+								<ul class="list-group peopleList">
+<!--
+									<li class="list-group-item" id="" name="" onclick='mySwipe.next()'>First item</li>
+									<li class="list-group-item" onclick='mySwipe.next()'>Second item</li>
+									<li class="list-group-item" onclick='mySwipe.next()'>Third item</li>
+-->
+								</ul>
+							</div>
+						</div>
+						<div id="gifts-for-person" style='background-color:#888;' class="col-xs-12">
+							<div class="row">
+								<nav class="navbar navbar-default col-xs-12">
+									<div class="container-fluid">
+										<div class="navbar-header navbar-left">
+											<button type="button" onclick='mySwipe.prev()' class="btn btn-primary btn-arrow-left navbar-btn navbar-right col-xs-3 "><i class="icon-plus-sign icon-large"></i> People</button>
+										</div>
+										<h1 class="navbar-text navbar-center col-xs-9">Gift Ideas </h1>
+										<div class="navbar-header navbar-right">
+											<button type="button" displaypage="giftPeople" onclick='app.AddGift(event)' class="btn btn-default navbar-btn navbar-right col-xs-3 "><i class="icon-plus-sign icon-large"></i>+ Add</button>
+										</div>
+									</div>
+								</nav>
+							</div>
+							<div class="row">
+								<ul class="list-group giftForPersonList">
+									<li class="list-group-item">First item</li>
+									<li class="list-group-item">Second item</li>
+									<li class="list-group-item">Third item</li>
+								</ul>
+							</div>
+						</div>
+					</div>
 				</div>
 			</div>
 		</div>
+	</section>
+	
+	<section data-role="page" id="occasion-list">
+		<div class="container">
+			<div class="row">
+				<div id='mySwipe1' class='swipe1 col-xs-12'>
+					<div class='swipe-wrap1'>
+						<div style='background-color:#999;' class="col-xs-12">
+							<div class="row">
+								<nav class="navbar navbar-default col-xs-12">
+									<div class="container-fluid">
+										<h1 class="navbar-text navbar-center col-xs-9">Occasions</h1>
+										<div class="navbar-header navbar-right">
+											<button displaypage="occasions" type="button" onclick='app.AddPeopleOccation(event)' class="btn btn-default navbar-btn navbar-right col-xs-3 "><i class="icon-plus-sign icon-large"></i>+ Add</button>
+										</div>
+									</div>
+								</nav>
+							</div>
 
-		<div style='text-align:center;padding-top:20px;'>
-
-			<button onclick='mySwipe.prev()'>prev</button>
-			<button onclick='mySwipe.next()'>next</button>
-
+							<div class="row">
+								<ul class="list-group occasionList">
+<!--
+									<li class="list-group-item" onclick='mySwipe1.next()'>First item</li>
+									<li class="list-group-item" onclick='mySwipe1.next()'>Second item</li>
+									<li class="list-group-item" onclick='mySwipe1.next()'>Third item</li>
+-->
+								</ul>
+							</div>
+						</div>
+						<div id="gifts-for-person" style='background-color:#888;' class="col-xs-12">
+							<div class="row">
+								<nav class="navbar navbar-default col-xs-12">
+									<div class="container-fluid">
+										<div class="navbar-header navbar-left">
+											<button type="button" onclick='mySwipe1.prev()' class="btn btn-primary btn-arrow-left navbar-btn navbar-right col-xs-3 ">Occasions</button>
+										</div>
+										<h1 class="navbar-text navbar-center col-xs-9">Gift Ideas </h1>
+										<div class="navbar-header navbar-right">
+											<button type="button" displaypage="giftOccasion" onclick='app.AddGift(event)' class="btn btn-default navbar-btn navbar-right col-xs-3 "><i class="icon-plus-sign icon-large"></i>+ Add</button>
+										</div>
+									</div>
+								</nav>
+							</div>
+							<div class="row">
+								<ul class="list-group giftOccasionList">
+									<li class="list-group-item">First item</li>
+									<li class="list-group-item">Second item</li>
+									<li class="list-group-item">Third item</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 		</div>
 	</section>
+	
+	
+	
+<!--
 
 	<section data-role="page" id="occasion-list">
-		<div id='mySwipe1' style='max-width:500px;margin:0 auto' class='swipe1'>
-			<div class='swipe-wrap1'>
-				<div style='background-color:#999;'>
-					<h2>Occasions <button class="btnAdd">+</button></h2>
-					<p class="details">
-						Here is the list of occasions when <em>you</em> buy gifts.
-					</p>
-					<ul data-role="listview">
 
-						list of items to be dynamically added single-tap to add gift for occasion through gifts-for-occasion page double-tap to remove occasion
+		<div class="container">
+			<div class="row">
+				<div id='mySwipe1' style='max-width:500px;margin:0 auto' class='swipe1 col-xs-12'>
+					<div class='swipe-wrap1'>
+						<div style='background-color:#999;'>
+							<h2>Occasions <button class="btnAdd">+</button></h2>
+							<p class="details">
+								Here is the list of occasions when <em>you</em> buy gifts.
+							</p>
+							<ul data-role="listview">
 
-					</ul>
+								list of items to be dynamically added single-tap to add gift for occasion through gifts-for-occasion page double-tap to remove occasion
+
+							</ul>
+						</div>
+						<div id="gifts-for-occasion" style='background-color:#888;'>
+
+							<h2>Gift Ideas <button class="btnAdd">+</button></h2>
+							<p class="details">
+								Here are all the gift ideas for <span>OCCASION</span> for all people.
+							</p>
+							<ul data-role="listview">
+
+								list of items to be dynamically added single-tap gift idea to toggle purchased state for gift double-tap gift idea to remove from list
+
+							</ul>
+						</div>
+					</div>
 				</div>
-				<div id="gifts-for-occasion" style='background-color:#888;'>
+				<div style='text-align:center;padding-top:20px;' class="col-xs-12">
 
-					<h2>Gift Ideas <button class="btnAdd">+</button></h2>
-					<p class="details">
-						Here are all the gift ideas for <span>OCCASION</span> for all people.
-					</p>
-					<ul data-role="listview">
+					<button onclick='mySwipe.prev()'>prev</button>
+					<button onclick='mySwipe.next()'>next</button>
 
-						list of items to be dynamically added single-tap gift idea to toggle purchased state for gift double-tap gift idea to remove from list
-
-					</ul>
 				</div>
 			</div>
 		</div>
-		
-		<div style='text-align:center;padding-top:20px;'>
-
-			<button onclick='mySwipe1.prev()'>prev</button>
-			<button onclick='mySwipe1.next()'>next</button>
-
-		</div>
-		
 	</section>
-
+-->
+	
+	/* Overlay
+	**************************************************/
 
 	<!-- always display the overlay between a page and modal -->
-		<div data-role="overlay">&nbsp;</div>
+	<div data-role="overlay">&nbsp;</div>
 
 	<!-- modal for adding an entry to person or occasion table -->
-	
 	<div data-role="modal" id="add-person-occasion">
 		<h3>Title (new person | occasion)</h3>
 		<form>
 			<div class="formBox">
-				<input type="text" id="new-per-occ" value="" placeholder="" class=""/>
+				<input type="text" id="new-per-occ" value="" placeholder="" class="form-control" />
 			</div>
+			<br>
 			<div class="formBox">
-				<input type="button" class="btnCancel" value="CANCEL" />
-				<input type="button" class="btnSave" value="SAVE" />
+				<input type="button" class="btnCancel btn btn-default" value="Cancel" onclick='app.hideModel()' />
+				<input type="button" class="btnSave btn btn-default margin-left-20" value="Save" onclick='app.save()' />
 			</div>
-		</form>	
+		</form>
 	</div>
 
-
 	<!-- modal for adding an entry to gift idea table. Requires a person or occasion plus the idea -->
-	
 	<div data-role="modal" id="add-gift">
 		<h3>Title (new gift for person | occasion)</h3>
 		<form>
-			<div class="formBox">
-				<select id="list-per-occ">
-					<option value="0">Choose one</option>
-					 list of options built from person list or occasion list 
-				</select>
+			<div class="input-group-btn">
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="color:#999;">
+					Province
+					<span class="caret"></span>
+				</button>
+				<ul class="dropdown-menu pull-left">
+					<li><a tabindex="-1" href="#">ON</a>
+					</li>
+					<li><a tabindex="-1" href="#">QC</a>
+					</li>
+					<li><a tabindex="-1" href="#">BC</a>
+					</li>
+					<li><a tabindex="-1" href="#">AB</a>
+					</li>
+				</ul>
 			</div>
 			<div class="formBox">
-				<input type="text" id="new-idea" value="" placeholder="" class=""/>
+				<input type="text" id="new-idea" value="" placeholder="" class="form-control" />
 			</div>
+			
 			<div class="formBox">
-				<input type="button" class="btnCancel" value="CANCEL" />
-				<input type="button" class="btnSave" value="SAVE" />
+				<input type="button" class="btnCancel btn btn-default" value="Cancel" onclick='app.hideModel()' />
+				<input type="button" class="btnSave btn btn-default margin-left-20" value="Save" onclick='app.save()' />
 			</div>
-		</form>	
+		</form>
 	</div>
+	
+<!--
+	<script type="text/javascript">
+		$(".dropdown-menu li a").click(function () {
+			$(this).parents(".input-group-btn").find('.btn').val($(this).data('value'));
+			$(this).parents(".input-group-btn").find('.btn').html(
+				$(this).text() + " <span class=\"caret\"></span>"
+			);
+		});
+	</script>
+-->
+
 </body>
 
 </html>

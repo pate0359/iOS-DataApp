@@ -12,6 +12,10 @@ h2{
   font-size:1.6rem;
   padding:1rem 0;
 }
+h1,h3
+{
+	text-align: center;
+}
 p{
   font-size:1.0rem;
   padding:1rem 0;
@@ -19,6 +23,10 @@ p{
 .wrapper{
   width:100%;
   height:100%;
+}
+li
+{
+	color:#333;
 }
 /*************************************
         Layout
@@ -31,13 +39,13 @@ p{
   left:0;
   width:100%;
   min-height:100%;
-/*  color:#eee;*/
-/*  background-color:#333;*/
+  color:#eee;
+  background-color:#333;
   padding:1rem;
 
 }
 [data-role=overlay]{
-  display: none;
+   display: none;
   position:fixed;
   top:0;
   left:0;
@@ -47,7 +55,7 @@ p{
   background-color: rgba(0,0,0,0.82);
 }
 [data-role=modal]{
-  display:none;
+   display:none;
   position:fixed;
   top:20%;
   left:10%;
@@ -60,6 +68,7 @@ p{
   color:#fff;
   background-color:#666;
   box-shadow:1px 1px 2px rgb(0,0,0);
+	border-radius: 10px;
 }
 /*************************************
         Forms
@@ -105,21 +114,10 @@ input, select{
   padding:0 1rem;
   cursor:pointer;
 }
+
 /*************************************
         Modals
 *************************************/
-#blue{
-	position:absolute;
-	top:100px;
-    left:100px;
-	width:100px;
-    height:100px;
-	background-color:blue;
-/*
-	cursor:pointer;
-	right:
-*/
-}
 #people-list
 {
 /*	position:absolute;*/
@@ -143,7 +141,12 @@ input, select{
 */
 	background-color:blue;
 }
-
+/*
+.new-per-occ , .new-idea
+{
+	padding-bottom: 10%;
+}
+*/
 /*
 .swipe {
   overflow: hidden;
@@ -206,3 +209,50 @@ input, select{
 height: 500px;
 }
 
+/* margin
+-------------------------------------------------- */
+
+.margin-top-5 { margin-top:5px; }
+.margin-top-10 { margin-top:10px; }
+.margin-top-15 { margin-top:15px; }
+.margin-top-20 { margin-top:20px; }
+
+.margin-bottom-5 { margin-bottom:5px; }
+.margin-bottom-10 { margin-bottom:10px; }
+.margin-bottom-15 { margin-bottom:15px; }
+.margin-bottom-20 { margin-bottom:20px; }
+
+.margin-left-5 { margin-left:5px; }
+.margin-left-10 { margin-left:10px; }
+.margin-left-15 { margin-left:15px; }
+.margin-left-20 { margin-left:20px; }
+
+.margin-right-5 { margin-right:5px; }
+.margin-right-10 { margin-right:10px; }
+.margin-right-15 { margin-right:15px; }
+.margin-right-20 { margin-right:20px; }
+
+
+/* Dropdown
+-------------------------------------------------- */
+.btn-input {
+   display: block;
+}
+
+.btn-input .btn.form-control {
+    text-align: left;
+}
+
+.btn-input .btn.form-control span:first-child {
+   left: 10px;
+   overflow: hidden;
+   position: absolute;
+   right: 25px;
+}
+
+.btn-input .btn.form-control .caret {
+   margin-top: -1px;
+   position: absolute;
+   right: 10px;
+   top: 50%;
+}
