@@ -13,7 +13,7 @@
 	<link href="css/bootstrap-arrow-buttons.css" rel="stylesheet" />
 	<link href="css/main.css" rel="stylesheet" />
 <!--	<script src="//code.jquery.com/jquery-1.11.0.min.js"></script>-->
-	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	<script type="text/javascript" src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/hammer.min.js"></script>
 	<script type="text/javascript" src="js/swipe.js"></script>
@@ -132,52 +132,6 @@
 		</div>
 	</section>
 	
-	
-	
-<!--
-
-	<section data-role="page" id="occasion-list">
-
-		<div class="container">
-			<div class="row">
-				<div id='mySwipe1' style='max-width:500px;margin:0 auto' class='swipe1 col-xs-12'>
-					<div class='swipe-wrap1'>
-						<div style='background-color:#999;'>
-							<h2>Occasions <button class="btnAdd">+</button></h2>
-							<p class="details">
-								Here is the list of occasions when <em>you</em> buy gifts.
-							</p>
-							<ul data-role="listview">
-
-								list of items to be dynamically added single-tap to add gift for occasion through gifts-for-occasion page double-tap to remove occasion
-
-							</ul>
-						</div>
-						<div id="gifts-for-occasion" style='background-color:#888;'>
-
-							<h2>Gift Ideas <button class="btnAdd">+</button></h2>
-							<p class="details">
-								Here are all the gift ideas for <span>OCCASION</span> for all people.
-							</p>
-							<ul data-role="listview">
-
-								list of items to be dynamically added single-tap gift idea to toggle purchased state for gift double-tap gift idea to remove from list
-
-							</ul>
-						</div>
-					</div>
-				</div>
-				<div style='text-align:center;padding-top:20px;' class="col-xs-12">
-
-					<button onclick='mySwipe.prev()'>prev</button>
-					<button onclick='mySwipe.next()'>next</button>
-
-				</div>
-			</div>
-		</div>
-	</section>
--->
-	
 	/* Overlay
 	**************************************************/
 
@@ -208,7 +162,7 @@
 					Province
 					<span class="caret"></span>
 				</button>
-				<ul class="dropdown-menu pull-left">
+				<ul class="dropdown-menu giftdropdown pull-left">
 					<li><a tabindex="-1" href="#">ON</a>
 					</li>
 					<li><a tabindex="-1" href="#">QC</a>

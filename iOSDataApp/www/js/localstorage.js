@@ -25,9 +25,8 @@ var Storage = {
 			}
 			return;
 		}
- 
-//		alert("Database is: "+db);
 		
+		//Create tables
 		Storage.createTables();
 		
 		//Get people list
@@ -66,7 +65,7 @@ var Storage = {
 	deletePeople:function(personId)
 	{
 		 db.transaction(function(tx) {
-            tx.executeSql("DELETE from people WHERE person_id=?;", ["personId"],Storage.dbDeleteSuccess,Storage.dbDeleteError);
+            tx.executeSql("DELETE from people WHERE person_id=?;", [personId],Storage.dbDeleteSuccess,Storage.dbDeleteError);
    		});
 	},
 	getPeopleList:function()
@@ -86,7 +85,7 @@ var Storage = {
 	deleteOccasion:function(occId)
 	{
 		db.transaction(function(tx) {
-            tx.executeSql("DELETE from occasions WHERE occ_id=?;", ["occId"], Storage.dbDeleteSuccess,Storage.dbDeleteError);
+            tx.executeSql("DELETE from occasions WHERE occ_id=?;", [occId], Storage.dbDeleteSuccess,Storage.dbDeleteError);
    		});
 	},
 	getOccasionList:function()
@@ -97,25 +96,30 @@ var Storage = {
 	},
 	
 	/////////////---	GIFT 	---////////////////
-	insertGift: function () 
+	insertGift: function (personId,occId,idea) 
 	{
 		db.transaction(function(tx) {
-			tx.executeSql("INSERT INTO gifts (person_id, occ_id, gift_idea, purchased) VALUES (?,?,?,?)", ["1","1","gift idea","false"], Storage.dbInsertSuccess,Storage.dbInsertError);
+			tx.executeSql("INSERT INTO gifts (person_id, occ_id, gift_idea, purchased) VALUES (?,?,?,?)", [personId,occId,idea,"false"], Storage.dbInsertSuccess,Storage.dbInsertError);
 		});
 	},
 	deleteGift:function(giftId)
 	{
 		 db.transaction(function(tx) {
-            tx.executeSql("DELETE from gifts WHERE giftId=?;", ["giftId"],Storage.dbDeleteSuccess,Storage.dbDeleteError);
+            tx.executeSql("DELETE from gifts WHERE giftId=?;", [giftId],Storage.dbDeleteSuccess,Storage.dbDeleteError);
    		});
 	},
-	getGiftList:function()
+	getGiftListForPerson:function(pid)
 	{
 		db.transaction(function(tx) {
-			tx.executeSql( "SELECT * FROM gifts", [],Storage.dbSelectSuccess,Storage.dbSelectError);
+			tx.executeSql( "SELECT * FROM gifts WHERE person_id=?;", [pid],Storage.dbSelectSuccess,Storage.dbSelectError);
 		});
 	},
-	
+	getGiftListForOccasion:function(occid)
+	{
+		db.transaction(function(tx) {
+			tx.executeSql( "SELECT * FROM gifts WHERE occ_id=?", [occid],Storage.dbSelectSuccess,Storage.dbSelectError);
+		});
+	},
 	//Error Handling
 	dbCreateError:function(transaction,error)
 	{
