@@ -65,7 +65,7 @@ var Storage = {
 	deletePeople:function(personId)
 	{
 		 db.transaction(function(tx) {
-            tx.executeSql("DELETE from people WHERE person_id=?;", [personId],Storage.dbDeleteSuccess,Storage.dbDeleteError);
+            tx.executeSql("DELETE from people WHERE person_id=?", [personId],Storage.dbDeleteSuccess,Storage.dbDeleteError);
    		});
 	},
 	getPeopleList:function()
@@ -85,7 +85,7 @@ var Storage = {
 	deleteOccasion:function(occId)
 	{
 		db.transaction(function(tx) {
-            tx.executeSql("DELETE from occasions WHERE occ_id=?;", [occId], Storage.dbDeleteSuccess,Storage.dbDeleteError);
+            tx.executeSql("DELETE from occasions WHERE occ_id=?", [occId], Storage.dbDeleteSuccess,Storage.dbDeleteError);
    		});
 	},
 	getOccasionList:function()
@@ -99,27 +99,38 @@ var Storage = {
 	insertGift: function (personId,occId,idea) 
 	{
 		db.transaction(function(tx) {
-			tx.executeSql("INSERT INTO gifts (person_id, occ_id, gift_idea, purchased) VALUES (?,?,?,?)", [personId,occId,idea,"false"], Storage.dbInsertSuccess,Storage.dbInsertError);
+			tx.executeSql("INSERT INTO gifts (person_id, occ_id, gift_idea, purchased) VALUES (?,?,?,?)", [personId,occId,idea,false], Storage.dbInsertSuccess,Storage.dbInsertError);
 		});
 	},
 	deleteGift:function(giftId)
 	{
 		 db.transaction(function(tx) {
-            tx.executeSql("DELETE from gifts WHERE giftId=?;", [giftId],Storage.dbDeleteSuccess,Storage.dbDeleteError);
+            tx.executeSql("DELETE from gifts WHERE gift_id=?", [giftId],Storage.dbDeleteSuccess,Storage.dbDeleteError);
    		});
 	},
 	getGiftListForPerson:function(pid)
 	{
+		
+		//SELECT g.purchased, g.gift_id, g.gift_idea,o.occ_name FROM gifts AS g INNER JOIN occasions AS o ON o.occ_id=g.occ_id WHERE g.person_id=1
+		
 		db.transaction(function(tx) {
-			tx.executeSql( "SELECT * FROM gifts WHERE person_id=?;", [pid],Storage.dbSelectSuccess,Storage.dbSelectError);
+			tx.executeSql( "SELECT g.purchased, g.gift_id, g.gift_idea,o.occ_name FROM gifts AS g INNER JOIN occasions AS o ON o.occ_id=g.occ_id WHERE g.person_id==?", [pid],Storage.dbSelectSuccess,Storage.dbSelectError);
 		});
 	},
 	getGiftListForOccasion:function(occid)
 	{
+		//SELECT g.purchased, g.gift_id, g.gift_idea,p.person_name FROM gifts AS g INNER JOIN people AS p ON p.person_id=g.person_id WHERE g.occ_id=
 		db.transaction(function(tx) {
-			tx.executeSql( "SELECT * FROM gifts WHERE occ_id=?", [occid],Storage.dbSelectSuccess,Storage.dbSelectError);
+			tx.executeSql( "SELECT g.purchased, g.gift_id, g.gift_idea,p.person_name FROM gifts AS g INNER JOIN people AS p ON p.person_id=g.person_id WHERE g.occ_id=?", [occid],Storage.dbSelectSuccess,Storage.dbSelectError);
 		});
 	},
+	updateGiftPurchase:function(giftId,boolVal)
+	{
+		db.transaction(function(tx) {
+			tx.executeSql( "UPDATE gifts SET purchased=? WHERE gift_id=?",[boolVal,giftId], Storage.dbUpdateSuccess, Storage.dbUpdateError);
+		});
+	},
+	
 	//Error Handling
 	dbCreateError:function(transaction,error)
 	{
@@ -138,6 +149,10 @@ var Storage = {
 	{
 		alert('Oops.  Error while getting data - '+error.message+' (Code '+error.code+')');
 	},
+	dbUpdateError:function(transaction, error)
+	{
+		alert('Oops.  Error while purchasing. - '+error.message+' (Code '+error.code+')');
+	},
 	
 	//Success methods
 	dbCreateSuccess:function(transaction, results)
@@ -155,12 +170,18 @@ var Storage = {
 	dbDeleteSuccess:function(transaction, results)
 	{
 		console.log("dbDeleteSuccess");
+		app.deleteSucess(displayedPage,results.rows);
+		
 	},
 	dbSelectSuccess:function(transaction, results)
 	{
 		var len = results.rows.length;
 		app.AddHTMLforList(displayedPage,results.rows);
 		console.log("dbSelectSuccess");
+	},
+	dbUpdateSuccess:function(transaction, results)
+	{
+		console.log("updateSucess");
 	},
 	displayedPage:function(pagename)
 	{

@@ -54,7 +54,7 @@
 								<nav class="navbar navbar-default col-xs-12">
 									<div class="container-fluid">
 										<div class="navbar-header navbar-left">
-											<button type="button" onclick='mySwipe.prev()' class="btn btn-primary btn-arrow-left navbar-btn navbar-right col-xs-3 "><i class="icon-plus-sign icon-large"></i> People</button>
+											<button type="button" backButton="people" onclick='app.movePrev(event)' class="btn btn-primary btn-arrow-left navbar-btn navbar-right col-xs-3 "><i class="icon-plus-sign icon-large"></i> People</button>
 										</div>
 										<h1 class="navbar-text navbar-center col-xs-9">Gift Ideas </h1>
 										<div class="navbar-header navbar-right">
@@ -65,9 +65,11 @@
 							</div>
 							<div class="row">
 								<ul class="list-group giftForPersonList">
+<!--
 									<li class="list-group-item">First item</li>
 									<li class="list-group-item">Second item</li>
 									<li class="list-group-item">Third item</li>
+-->
 								</ul>
 							</div>
 						</div>
@@ -109,7 +111,7 @@
 								<nav class="navbar navbar-default col-xs-12">
 									<div class="container-fluid">
 										<div class="navbar-header navbar-left">
-											<button type="button" onclick='mySwipe1.prev()' class="btn btn-primary btn-arrow-left navbar-btn navbar-right col-xs-3 ">Occasions</button>
+											<button type="button" backButton="occasion" onclick='app.movePrev(event)' class="btn btn-primary btn-arrow-left navbar-btn navbar-right col-xs-3 ">Occasions</button>
 										</div>
 										<h1 class="navbar-text navbar-center col-xs-9">Gift Ideas </h1>
 										<div class="navbar-header navbar-right">
@@ -120,9 +122,11 @@
 							</div>
 							<div class="row">
 								<ul class="list-group giftOccasionList">
+<!--
 									<li class="list-group-item">First item</li>
 									<li class="list-group-item">Second item</li>
 									<li class="list-group-item">Third item</li>
+-->
 								</ul>
 							</div>
 						</div>
@@ -163,6 +167,7 @@
 					<span class="caret"></span>
 				</button>
 				<ul class="dropdown-menu giftdropdown pull-left">
+<!--
 					<li><a tabindex="-1" href="#">ON</a>
 					</li>
 					<li><a tabindex="-1" href="#">QC</a>
@@ -171,6 +176,7 @@
 					</li>
 					<li><a tabindex="-1" href="#">AB</a>
 					</li>
+-->
 				</ul>
 			</div>
 			<div class="formBox">

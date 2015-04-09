@@ -28,6 +28,13 @@ li
 {
 	color:#333;
 }
+span
+{
+	float: right;
+	color: green;
+	font-size: 1.2rem;
+	padding-right: 5px;
+}
 /*************************************
         Layout
 *************************************/
