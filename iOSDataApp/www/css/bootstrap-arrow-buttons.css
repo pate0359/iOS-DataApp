@@ -12,14 +12,14 @@ RawBlameHistory     77 lines (76 sloc)  1.981 kb
 .btn-arrow-right,
 .btn-arrow-left {
   position: relative;
-  padding-left: 18px;
-  padding-right: 18px;
+  padding-left: 9px;
+  padding-right: 9px;
 }
 .btn-arrow-right {
-  padding-left: 36px;
+  padding-left: 20px;
 }
 .btn-arrow-left {
-  padding-right: 36px;
+  padding-right: 20px;
 }
 .btn-arrow-right:before,
 .btn-arrow-right:after,

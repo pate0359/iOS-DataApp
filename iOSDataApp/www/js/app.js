@@ -105,10 +105,16 @@ var app = {
 		//alert(pageName);
 
 		if (pageName == _PEOPLE_) {
+			
+			document.getElementById("new-per-occ").placeholder="Add person name";
+			
 			selectedPage = _PEOPLE_;
 			document.querySelector("#add-person-occasion h3").innerHTML = "Add New Person";
 
 		} else if (pageName == _OCCASION_) {
+			
+			document.getElementById("new-per-occ").placeholder="Add occasion";
+			
 			selectedPage = _OCCASION_;
 			document.querySelector("#add-person-occasion h3").innerHTML = "Add New Occasion";
 		}
@@ -123,8 +129,12 @@ var app = {
 		//alert(pageName);
 		
 		document.getElementById("new-idea").value="";
+		
 
 		if (pageName == _GIFTPEOPLE_) {
+			
+			document.getElementById("new-idea").placeholder="Add gift for person";
+			
 			selectedPage = _GIFTPEOPLE_;
 			document.querySelector("#add-gift h3").innerHTML = "Add new gift for " + personName;
 
@@ -135,6 +145,9 @@ var app = {
 			Storage.getOccasionList();
 
 		} else if (pageName == _GIFTOCCASION_) {
+			
+			document.getElementById("new-idea").placeholder="Add gift for occasion";
+			
 			selectedPage = _GIFTOCCASION_;
 			document.querySelector("#add-gift h3").innerHTML = "Add new gift for " + occasionName;
 			
