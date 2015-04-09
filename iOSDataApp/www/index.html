@@ -25,45 +25,48 @@
 	<section data-role="page" id="people-list">
 		<div class="container">
 			<div class="row">
-				<div id='mySwipe' class='swipe col-xs-12'>
+				<div id='mySwipe' class='swipe col-xs-10 '>
 					<div class='swipe-wrap'>
-						<div style='background-color:#999;' class="col-xs-12">
+						<div class="col-xs-10 ">
 							<div class="row">
-								<nav class="navbar navbar-default col-xs-12">
+								<nav class="navbar navbar-default col-xs-10 col-xs-offset-1">
 									<div class="container-fluid">
 										<h1 class="navbar-text navbar-center col-xs-9">People</h1>
 										<div class="navbar-header navbar-right">
-											<button displaypage="people" type="button" onclick='app.AddPeopleOccation(event)' class="btn btn-default navbar-btn navbar-right col-xs-3 "><i class="icon-plus-sign icon-large"></i>+ Add</button>
+											<button displaypage="people" type="button" onclick='app.AddPeopleOccation(event)' class="btn btn-primary navbar-btn navbar-right col-xs-3 "><i class="icon-plus-sign icon-large"></i>+ Add</button>
 										</div>
 									</div>
 								</nav>
 							</div>
 
-							<div class="row">
-								<ul class="list-group peopleList">
+							<div class="row col-xs-10  col-xs-offset-1">
+<!--								<div class="col-xs-10  col-xs-offset-1">-->
+									<ul class="list-group peopleList">
 <!--
 									<li class="list-group-item" id="" name="" onclick='mySwipe.next()'>First item</li>
 									<li class="list-group-item" onclick='mySwipe.next()'>Second item</li>
 									<li class="list-group-item" onclick='mySwipe.next()'>Third item</li>
 -->
 								</ul>
+<!--								</div>-->
+								
 							</div>
 						</div>
-						<div id="gifts-for-person" style='background-color:#888;' class="col-xs-12">
+						<div id="gifts-for-person" class="col-xs-10">
 							<div class="row">
-								<nav class="navbar navbar-default col-xs-12">
+								<nav class="navbar navbar-default col-xs-10 col-xs-offset-1">
 									<div class="container-fluid">
 										<div class="navbar-header navbar-left">
 											<button type="button" backButton="people" onclick='app.movePrev(event)' class="btn btn-primary btn-arrow-left navbar-btn navbar-right col-xs-3 "><i class="icon-plus-sign icon-large"></i> People</button>
 										</div>
 										<h1 class="navbar-text navbar-center col-xs-9">Gift Ideas </h1>
 										<div class="navbar-header navbar-right">
-											<button type="button" displaypage="giftPeople" onclick='app.AddGift(event)' class="btn btn-default navbar-btn navbar-right col-xs-3 "><i class="icon-plus-sign icon-large"></i>+ Add</button>
+											<button type="button" displaypage="giftPeople" onclick='app.AddGift(event)' class="btn btn-primary navbar-btn navbar-right col-xs-3 "><i class="icon-plus-sign icon-large"></i>+ Add</button>
 										</div>
 									</div>
 								</nav>
 							</div>
-							<div class="row">
+							<div class="row col-xs-10  col-xs-offset-1">
 								<ul class="list-group giftForPersonList">
 <!--
 									<li class="list-group-item">First item</li>
@@ -82,21 +85,21 @@
 	<section data-role="page" id="occasion-list">
 		<div class="container">
 			<div class="row">
-				<div id='mySwipe1' class='swipe1 col-xs-12'>
+				<div id='mySwipe1' class='swipe1 col-xs-10'>
 					<div class='swipe-wrap1'>
-						<div style='background-color:#999;' class="col-xs-12">
+						<div  class="col-xs-10">
 							<div class="row">
-								<nav class="navbar navbar-default col-xs-12">
+								<nav class="navbar navbar-default col-xs-10 col-xs-offset-1">
 									<div class="container-fluid">
 										<h1 class="navbar-text navbar-center col-xs-9">Occasions</h1>
 										<div class="navbar-header navbar-right">
-											<button displaypage="occasions" type="button" onclick='app.AddPeopleOccation(event)' class="btn btn-default navbar-btn navbar-right col-xs-3 "><i class="icon-plus-sign icon-large"></i>+ Add</button>
+											<button displaypage="occasions" type="button" onclick='app.AddPeopleOccation(event)' class="btn btn-primary navbar-btn navbar-right col-xs-3 "><i class="icon-plus-sign icon-large"></i>+ Add</button>
 										</div>
 									</div>
 								</nav>
 							</div>
 
-							<div class="row">
+							<div class="row col-xs-10  col-xs-offset-1">
 								<ul class="list-group occasionList">
 <!--
 									<li class="list-group-item" onclick='mySwipe1.next()'>First item</li>
@@ -106,21 +109,21 @@
 								</ul>
 							</div>
 						</div>
-						<div id="gifts-for-person" style='background-color:#888;' class="col-xs-12">
+						<div id="gifts-for-person" class="col-xs-10">
 							<div class="row">
-								<nav class="navbar navbar-default col-xs-12">
+								<nav class="navbar navbar-default col-xs-10 col-xs-offset-1">
 									<div class="container-fluid">
 										<div class="navbar-header navbar-left">
 											<button type="button" backButton="occasion" onclick='app.movePrev(event)' class="btn btn-primary btn-arrow-left navbar-btn navbar-right col-xs-3 ">Occasions</button>
 										</div>
 										<h1 class="navbar-text navbar-center col-xs-9">Gift Ideas </h1>
 										<div class="navbar-header navbar-right">
-											<button type="button" displaypage="giftOccasion" onclick='app.AddGift(event)' class="btn btn-default navbar-btn navbar-right col-xs-3 "><i class="icon-plus-sign icon-large"></i>+ Add</button>
+											<button type="button" displaypage="giftOccasion" onclick='app.AddGift(event)' class="btn btn-primary navbar-btn navbar-right col-xs-3 "><i class="icon-plus-sign icon-large"></i>+ Add</button>
 										</div>
 									</div>
 								</nav>
 							</div>
-							<div class="row">
+							<div class="row col-xs-10  col-xs-offset-1">
 								<ul class="list-group giftOccasionList">
 <!--
 									<li class="list-group-item">First item</li>
@@ -147,22 +150,27 @@
 		<h3>Title (new person | occasion)</h3>
 		<form>
 			<div class="formBox">
-				<input type="text" id="new-per-occ" value="" placeholder="" class="form-control" />
+				<input type="text" id="new-per-occ" value="" placeholder="Add person name" class="form-control" />
 			</div>
 			<br>
 			<div class="formBox">
-				<input type="button" class="btnCancel btn btn-default" value="Cancel" onclick='app.hideModel()' />
-				<input type="button" class="btnSave btn btn-default margin-left-20" value="Save" onclick='app.save()' />
+				<input type="button" class="btnCancel btn btn-primary" value="Cancel" onclick='app.hideModel()' />
+				<input type="button" class="btnSave btn btn-primary margin-left-20" value="Save" onclick='app.save()' />
 			</div>
 		</form>
 	</div>
 
 	<!-- modal for adding an entry to gift idea table. Requires a person or occasion plus the idea -->
 	<div data-role="modal" id="add-gift">
+		<div class="container">
 		<h3>Title (new gift for person | occasion)</h3>
 		<form>
-			<div class="input-group-btn">
-				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" style="color:#999;">
+			<div class="formBox row">
+				<input type="text" id="new-idea" value="" placeholder="Add new person" class="form-control" />
+			</div>
+			<br/>
+			<div class="row input-group-btn">
+				<button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
 					Province
 					<span class="caret"></span>
 				</button>
@@ -179,15 +187,14 @@
 -->
 				</ul>
 			</div>
-			<div class="formBox">
-				<input type="text" id="new-idea" value="" placeholder="" class="form-control" />
-			</div>
+			<br>
 			
-			<div class="formBox">
-				<input type="button" class="btnCancel btn btn-default" value="Cancel" onclick='app.hideModel()' />
-				<input type="button" class="btnSave btn btn-default margin-left-20" value="Save" onclick='app.save()' />
+			<div class="formBox row">
+				<input type="button" class="btnCancel btn btn-primary" value="Cancel" onclick='app.hideModel()' />
+				<input type="button" class="btnSave btn btn-primary margin-left-20" value="Save" onclick='app.save()' />
 			</div>
 		</form>
+			</div>
 	</div>
 	
 <!--

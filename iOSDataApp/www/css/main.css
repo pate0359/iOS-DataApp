@@ -134,7 +134,7 @@ input, select{
 	width:100%;
     height:100px;
 */
-	background-color:yellow;
+/*	background-color:yellow;*/
 }
 
 #occasion-list
@@ -146,74 +146,28 @@ input, select{
 	width:100%;
     height:100px;
 */
-	background-color:blue;
+/*	background-color:blue;*/
 }
-/*
-.new-per-occ , .new-idea
-{
-	padding-bottom: 10%;
-}
-*/
-/*
-.swipe {
-  overflow: hidden;
-  visibility: hidden;
-*/
-/*  position: relative;*/
-/*
-	position:absolute;
-  z-index:5;
-  top:0;
-  left:0;
-  width:100%;
-  min-height:100%;
-  color:#eee;
-  background-color:#333;
-  padding:1rem;
-}
-.swipe-wrap {
-  overflow: hidden;
-*/
-/*  position: relative;*/
-/*
-	position:absolute;
-  z-index:5;
-  top:0;
-  left:0;
-  width:100%;
-  min-height:100%;
-*/
-/*
-  color:#eee;
-  background-color:#333;
-  padding:1rem;
-*/
-/*}*/
-/*
-.swipe-wrap > div {
-  float:left;
-  width:100%;
-  position: relative;
-}
-*/
 
 .swipe,.swipe1 {
   overflow: hidden;
   visibility: hidden;
   position: relative;
-	height: 500px;
+	width: 100%;
+/*	height: 500px;*/
 }
 .swipe-wrap, .swipe-wrap1 {
   overflow: hidden;
   position: relative;
-	height: 500px;
+	width: 100%;
+/*	height: 500px;*/
 }
 .swipe-wrap > div, .swipe-wrap1 > div{
   float:left;
   width:100%;
   position: relative;
-	background-color: red;
-height: 500px;
+/*	background-color: red;*/
+/*height: 500px;*/
 }
 
 /* margin
