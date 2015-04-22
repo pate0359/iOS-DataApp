@@ -159,6 +159,24 @@
 - (BOOL)execute:(CDVInvokedUrlCommand*)command
 {
     return [super execute:command];
+    
+    Maximum( 13, 42 );
+    
+    Maximum( 1.3, 4.2 );
+}
+
+int Maximum( int value1,int value2 )
+
+{
+    
+    if ( value1 > value2 )
+        
+        return value1;
+    
+    else
+        
+        return value2;
+    
 }
 
 @end
